@@ -1,0 +1,189 @@
+.carouselContainer {
+  width: 1200px;
+  margin: 130px auto 10px auto;
+  border-radius: 8px;
+  position: relative;
+}
+
+.carouselSlide {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.carouselSlide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay semi-transparente */
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.carouselContent {
+  position: relative;
+  z-index: 2; /* Garante que o conteúdo fique acima do overlay */
+  max-width: 800px;
+}
+
+.carouselTitle {
+  font-size: 50px;
+  margin-bottom: 10px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.carouselDescription {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carouselButton {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: gray;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.carouselButton:hover {
+  background-color: #ea7e00;
+}
+
+/* Estilos para as bolinhas (dots) e setas (arrows) */
+.carouselContainer :global(.slick-dots li button:before) {
+  font-size: 10px;
+  color: white;
+  
+}
+
+.carouselContainer :global(.slick-dots li.slick-active button:before) {
+  color: #ea7e00;
+  opacity: 1;
+}
+
+.carouselContainer :global(.slick-dots) {
+  position: absolute; /* Posição absoluta em relação ao .carousel-container */
+  bottom: 10px; /* Distância do fundo do carrossel */
+  left: 50%;
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  margin: 0;
+  padding: 0;
+  z-index: 3; 
+}
+
+.carouselContainer :global(.slick-prev),
+.carouselContainer :global(.slick-next) {
+    position: absolute;
+    top: 50%;
+    z-index: 3; /* Garante que as setas fiquem por cima do overlay */
+    width: 40px;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.386); /* Fundo semi-transparente */
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.carouselContainer :global(.slick-prev:hover),
+.carouselContainer :global(.slick-next:hover) {
+  background-color: #2f2a27;
+}
+
+/* Posição específica para cada seta */
+.carouselContainer :global(.slick-prev){
+  left: 10px; /* Distância da borda esquerda */
+}
+
+.carouselContainer :global(.slick-next) {
+  right: 10px; /* Distância da borda direita */
+}
+
+/* Ocultar o texto padrão da seta e usar um ícone */
+.carouselContainer :global(.slick-prev::before),
+.carouselContainer :global(.slick-next::before) {
+  font-family: 'slick';
+  font-size: 26px;
+  color: white;
+  opacity: 0.75;
+}
+
+
+/*RESPONSIVO*/
+
+/* Responsivo para telas médias */
+@media (max-width: 1200px) {
+  .carouselContainer {
+    width: 98%;
+    margin: 130px auto 10px auto;
+  }
+  .carouselSlide {
+    height: 400px;
+    padding: 10px;
+  }
+  .carouselTitle {
+    font-size: 36px;
+  }
+  .carouselDescription {
+    font-size: 18px;
+  }
+}
+
+/* Responsivo para telas pequenas (mobile) */
+@media (max-width: 700px) {
+  .carouselContainer {
+    display: none;
+  };
+}
+    /*
+    width: 100%;
+    margin: 120px auto 5px auto;
+    border-radius: 0;
+    padding: 0;
+  }
+  .carouselSlide {
+    height: 220px;
+    padding: 6px;
+    border-radius: 0;
+  }
+  .carouselContent {
+    max-width: 95vw;
+    padding: 0 4px;
+  }
+  .carouselTitle {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .carouselDescription {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .carouselButton {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  .carouselContainer :global(.slick-prev),
+  .carouselContainer :global(.slick-next) {
+    width: 28px;
+    height: 40%;
+    font-size: 18px;
+  }
+  .carouselContainer :global(.slick-dots) {
+    bottom: 2px;
+  }
+}*/
